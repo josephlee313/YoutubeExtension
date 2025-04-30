@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT白名單</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>YT白名單</h1>
+            <div class="toggle-container">
+                <label class="switch">
+                    <input type="checkbox" id="whitelist-toggle" checked>
+                    <span class="slider round"></span>
+                </label>
+                <span class="toggle-label">白名單已啟用</span>
+            </div>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="community">社區白名單</button>
+            <button class="tab-btn" data-tab="filter">篩選等級</button>
+            <button class="tab-btn" data-tab="settings">設定</button>
+        </div>
+        
+        <div class="tab-content active" id="community-tab">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="搜尋頻道...">
+                <button id="search-btn">搜尋</button>
+            </div>
+            
+            <div class="filter-options">
+                <div class="filter-group">
+                    <h3>語言：</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="chinese" checked> 中文</label>
+                        <label><input type="checkbox" value="english"> 英文</label>
+                        <label><input type="checkbox" value="japanese"> 日文</label>
+                        <label><input type="checkbox" value="korean"> 韓文</label>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <h3>內容：</h3>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="science" checked> 科學</label>
+                        <label><input type="checkbox" value="music"> 音樂</label>
+                        <label><input type="checkbox" value="dance"> 舞蹈</label>
+                        <label><input type="checkbox" value="crafts"> 手作</label>
+                        <label><input type="checkbox" value="games"> 遊戲</label>
+                        <label><input type="checkbox" value="other"> 其他</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="channel-list" id="community-channels">
+                <!-- 社區白名單頻道將通過 JS 動態插入 -->
+            </div>
+            
+            <div class="pagination">
+                <button class="page-btn" data-page="1">1</button>
+                <button class="page-btn" data-page="2">2</button>
+                <button class="page-btn" data-page="3">3</button>
+                <button class="page-btn" data-page="4">4</button>
+                <button class="page-btn" data-page="5">5</button>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="filter-tab">
+            <div class="filter-level">
+                <h3>白名單來源：</h3>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="filter-level" value="community" checked>
+                        社區白名單
+                    </label>
+                    <p class="description">使用所有用戶添加的頻道作為白名單</p>
+                    
+                    <label>
+                        <input type="radio" name="filter-level" value="custom">
+                        自訂白名單
+                    </label>
+                    <p class="description">僅使用您添加的頻道作為白名單</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="settings-tab">
+            <div class="settings-list">
+                <div class="setting-item" id="password-setting">
+                    <div class="setting-icon">🔒</div>
+                    <div class="setting-text">密碼變更/忘記</div>
+                    <div class="setting-arrow">›</div>
+                </div>
+                
+                <div class="setting-item" id="whitelist-management">
+                    <div class="setting-icon">📋</div>
+                    <div class="setting-text">白名單管理</div>
+                    <div class="setting-arrow">›</div>
+                </div>
+                
+                <div class="setting-item" id="language-setting">
+                    <div class="setting-icon">🌐</div>
+                    <div class="setting-text">系統語言</div>
+                    <div class="setting-arrow">›</div>
+                </div>
+                
+                <div class="setting-item" id="help-setting">
+                    <div class="setting-icon">❓</div>
+                    <div class="setting-text">使用說明</div>
+                    <div class="setting-arrow">›</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 密碼輸入對話框 -->
+    <div id="password-dialog" class="dialog">
+        <div class="dialog-content">
+            <h3>請輸入密碼</h3>
+            <input type="password" id="password-input" placeholder="請輸入密碼...">
+            <div class="dialog-buttons">
+                <button id="cancel-btn">取消</button>
+                <button id="confirm-btn">確認</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="utils/storage.js"></script>
+    <script src="utils/whitelistManager.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

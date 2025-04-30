@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT白名單 - 設定</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YT白名單設定</h1>
+        </header>
+        
+        <nav class="sidebar">
+            <ul>
+                <li class="nav-item active" data-section="whitelist-section">
+                    <div class="nav-icon">📋</div>
+                    <div class="nav-text">白名單管理</div>
+                </li>
+                <li class="nav-item" data-section="password-section">
+                    <div class="nav-icon">🔒</div>
+                    <div class="nav-text">密碼設定</div>
+                </li>
+                <li class="nav-item" data-section="language-section">
+                    <div class="nav-icon">🌐</div>
+                    <div class="nav-text">系統語言</div>
+                </li>
+                <li class="nav-item" data-section="help-section">
+                    <div class="nav-icon">❓</div>
+                    <div class="nav-text">使用說明</div>
+                </li>
+            </ul>
+        </nav>
+        
+        <main class="content">
+            <!-- 白名單管理區塊 -->
+            <section id="whitelist-section" class="section active">
+                <h2>白名單管理</h2>
+                
+                <div class="card">
+                    <h3>您的白名單頻道</h3>
+                    <div class="card-content">
+                        <div class="search-bar">
+                            <input type="text" id="whitelist-search" placeholder="搜尋頻道...">
+                        </div>
+                        
+                        <div class="custom-whitelist">
+                            <!-- 白名單頻道列表將在此動態生成 -->
+                            <div class="empty-list-message">尚未添加任何頻道。</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>手動添加頻道</h3>
+                    <div class="card-content">
+                        <p class="hint">請輸入 YouTube 頻道 ID 或完整頻道網址：</p>
+                        <div class="input-group">
+                            <input type="text" id="channel-input" placeholder="例如：UC123456789 或 https://www.youtube.com/channel/UC123456789">
+                            <button id="add-channel-btn">添加</button>
+                        </div>
+                        <p class="note">* 頻道 ID 可在瀏覽頻道時，從網址列獲取</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 密碼設定區塊 -->
+            <section id="password-section" class="section">
+                <h2>密碼設定</h2>
+                
+                <div class="card">
+                    <h3>設定密碼</h3>
+                    <div class="card-content">
+                        <p class="hint">設置關閉白名單功能所需的密碼：</p>
+                        <div class="form-group">
+                            <label for="current-password">目前密碼</label>
+                            <input type="password" id="current-password" placeholder="如未設定密碼，請留空">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="new-password">新密碼</label>
+                            <input type="password" id="new-password" placeholder="請輸入新密碼">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirm-password">確認新密碼</label>
+                            <input type="password" id="confirm-password" placeholder="請再次輸入新密碼">
+                        </div>
+                        
+                        <button id="save-password-btn">儲存密碼</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 系統語言區塊 -->
+            <section id="language-section" class="section">
+                <h2>系統語言</h2>
+                
+                <div class="card">
+                    <h3>語言設定</h3>
+                    <div class="card-content">
+                        <p class="hint">請選擇系統顯示語言：</p>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="language" value="zh-TW" checked>
+                                繁體中文
+                            </label>
+                            
+                            <label>
+                                <input type="radio" name="language" value="en-US">
+                                English
+                            </label>
+                        </div>
+                        
+                        <button id="save-language-btn">儲存設定</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 使用說明區塊 -->
+            <section id="help-section" class="section">
+                <h2>使用說明</h2>
+                
+                <div class="card">
+                    <h3>功能介紹</h3>
+                    <div class="card-content">
+                        <div class="feature-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">🔒</div>
+                                <div class="feature-text">
+                                    <h4>白名單保護</h4>
+                                    <p>攔截、隱藏所有「非白名單」的搜尋、推薦及自動播放內容。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">🔄</div>
+                                <div class="feature-text">
+                                    <h4>外部連結保護</h4>
+                                    <p>點開「非白名單」YouTube連結時，自動跳轉到首頁。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">☁️</div>
+                                <div class="feature-text">
+                                    <h4>雲端同步</h4>
+                                    <p>自動同步所有設備的白名單及系統設定。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">🔍</div>
+                                <div class="feature-text">
+                                    <h4>社區推薦</h4>
+                                    <p>透過社區白名單找到更多優質頻道。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>如何添加頻道到白名單</h3>
+                    <div class="card-content">
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-text">在 YouTube 頻道頁面中，點擊「訂閱」按鈕旁的白名單按鈕。</div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-text">或在頻道頁面中，點擊「...」選單中的「加入白名單」選項。</div>
+                            </div>
+                            
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-text">您也可以在此設定頁面中，手動輸入頻道 ID 進行添加。</div>
+                            </div>
+                        </div>
+                        
+                        <div class="video-tutorial">
+                            <button id="tutorial-btn">觀看教學影片</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="utils/storage.js"></script>
+    <script src="utils/whitelistManager.js"></script>
+    <script src="options.js"></script>
+</body>
+</html>

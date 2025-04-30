@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "YouTube 白名單",
+    "version": "1.0.0",
+    "description": "YouTube 白名單擴充功能，只允許觀看已加入白名單的頻道",
+    "permissions": [
+      "storage",
+      "identity",
+      "tabs",
+      "webNavigation",
+      "declarativeNetRequest"
+    ],
+    "host_permissions": [
+      "*://*.youtube.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*.youtube.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_start"
+      }
+    ],
+    "action": {
+      "default_popup": "popup/popup.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png"
+      }
+    },
+    "options_ui": {
+      "page": "options/options.html",
+      "open_in_tab": true
+    },
+    "icons": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  }
